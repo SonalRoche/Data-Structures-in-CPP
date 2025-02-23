@@ -1,15 +1,17 @@
 #include<iostream>
 using namespace std;
 
+// Queue class implementing basic queue operations
 class Queue {
 private:
-    int* arr;
-    int length; // max capacity of array
-    int size;
-    int head;
-    int tail;
+    int* arr;   // Dynamic array to store queue elements
+    int length; // Maximum capacity of the queue
+    int size;   // Current number of elements in the queue
+    int head;   // Points to the front of the queue
+    int tail;   // Points to the next available position at the end of the queue
 
 public:
+    // Constructor to initialize the queue with a given capacity
     Queue(int length) {
         this->length = length;
         arr = new int[length];
@@ -18,10 +20,12 @@ public:
         size = 0;
     }
 
+    // Destructor to release allocated memory
     ~Queue() {
         delete[] arr;
     }
 
+    // Function to add an element to the queue
     void enqueue(int value) {
         if (size == length) {
             cout << "Queue Full.\n";
@@ -29,14 +33,16 @@ public:
         }
         arr[tail] = value;
         size++;
+        // Move tail to the next position (circular increment)
         if (tail + 1 == length) {
-            tail = 0;
+            tail = 0; // Wrap around if at the end
         }
         else {
             tail++;
         }
     }
 
+    // Function to remove and return the front element
     int dequeue() {
         if (size == 0) {
             cout << "Queue Empty.\n";
@@ -44,7 +50,7 @@ public:
         }
         int x = arr[head];
         if (head == length -1) {
-            head = 0;
+            head = 0; // Wrap around if at the end
         }
         else {
             head++;
@@ -54,14 +60,17 @@ public:
         return x;
     }
 
+    // Function to check if the queue is empty
     bool isEmpty() {
         return size == 0;
     }
 
+    // Function to check if the queue is full
     bool isFull() {
         return size == length;
     }
 
+    // Function to return the front element without removing it
     int peek() {
         if (isEmpty()) {
             cout << "Queue Empty.\n";
@@ -70,6 +79,7 @@ public:
         return arr[head];
     }
 
+    // Function to display the elements in the queue
     void display() {
         if (isEmpty()) {
             cout << "Queue Empty.\n";
