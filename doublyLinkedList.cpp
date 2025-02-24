@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+// Class representing a node
 class Node {
 public:
     int data;
@@ -14,6 +15,7 @@ public:
     }
 };
 
+// Class representing a SLL
 class DoublyLinkedList {
 private:
     Node* head;
