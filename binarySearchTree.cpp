@@ -125,6 +125,7 @@ public:
         return nullptr;
     }
 
+    // Return the successor of the given node
     Node* successor(int val) {
         
         // Search BST for node 'val'
@@ -153,6 +154,7 @@ public:
         return par;
     }
 
+    // Return the predecessor of the given node
     Node* predecessor(int val) {
         
         // Search BST for node 'val'
@@ -232,7 +234,6 @@ private:
 int main() {
 
     BST tree;
-    //Node* s, succ, pred;
 
     tree.insert(15);
     tree.insert(6);
