@@ -13,10 +13,12 @@ empty()
 begin(), end(), rbegin(), rend()
 insert(), erase()
 push_back(), pop_back()
-clear() // accessing elements after clear() is undefined behavior */
+clear() // accessing elements after clear() is undefined behavior
+sort() */
 
   #include <iostream>
   #include <vector>
+  #include <algorithm>
   using namespace std;
   
   int main()
@@ -40,6 +42,10 @@ clear() // accessing elements after clear() is undefined behavior */
       
       //deleting
       v.pop_back();
+      cout << "Front = " << v.front() << " Back = " << v.back() << endl;
+
+      //sorting
+      sort(v.begin(), v.end());
       cout << "Front = " << v.front() << " Back = " << v.back() << endl;
 
       v.clear();
